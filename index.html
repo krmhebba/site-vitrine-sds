@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SDS - Société de Distribution Souibri-Souidis, distributeur officiel Bellota et Urko au Maroc depuis 1986. Outils professionnels pour agriculture, construction et jardinage.">
+    <meta name="keywords" content="outils professionnels, Bellota, Urko, Maroc, agriculture, construction, jardinage, outils Casablanca">
+    <meta name="author" content="SDS">
+    <title>SDS | Accueil</title>
+    <link rel="icon" href="logo sans bg.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="bg.mp4" type="video/mp4">
+  </video>  
+  <header>
+    <a href="index.html"><img src="logo.jpg" alt="Logo de SDS"></a>
+    <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <nav id="main-nav">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Qui sommes-nous.html">Qui sommes-nous ?</a></li>
+            <li><a href="Nos Produits.html">Nos Produits</a></li>
+            <li><a href="Contact et Localisation.html">Contact et Localisation</a></li>
+            <li><a href="Demande de Devis.html">Demande de Devis</a></li>
+            <li><a href="Liste des Demandes.html">Liste des Demandes</a></li>
+            <li><a href="Notre Equipe.html">Notre Équipe</a></li>
+        </ul>
+    </nav>
+  </header>
+  <section class="accueil">
+    <h1>Bienvenue sur le site officiel de <abbr class="ab">SDS<span class="abtext">Société de Distribution Souibri - Souidis</span>
+    </abbr>!</h1>    
+    <p>
+      Depuis 1986, la Société de Distribution Souibri - Souidis accompagne les professionnels et particuliers marocains avec des outils fiables, solides et performants.
+      Que vous soyez agriculteur, artisan ou bricoleur passionné, nous avons ce qu'il vous faut.
+      Distributeurs officiels des marques internationales <strong>Bellota et Urko</strong>, nous vous invitons à explorer notre univers d'outillage pensé pour durer. 
+      Grâce à une <a href="Nos Produits.html" class="liens-d-accueil">sélection variée de produits</a>, à des 
+      partenaires de confiance et à <a href="Notre Equipe.html" class="liens-d-accueil">une équipe</a> à votre écoute, 
+      nous mettons tout en œuvre pour répondre à vos besoins avec efficacité. 
+      Vous pouvez également <a href="Contact et Localisation.html" class="liens-d-accueil">nous contacter</a> pour toute information ou demande spécifique.
+    </p>
+  </section>
+  <a href="#" class="hdp"><span class="flc"></span></a>
+  <footer>
+    <p>&copy; 2025 Société de Distribution Souibri - Souidis. Tous droits réservés.</p>
+  </footer>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SDS - Société de Distribution Souibri-Souidis, distributeur officiel Bellota et Urko au Maroc depuis 1986. Outils professionnels pour agriculture, construction, et jardinage.">
+    <meta name="keywords" content="outils professionnels, Bellota, Urko, Maroc, agriculture, construction, jardinage, outils Casablanca">
+    <meta name="author" content="SDS">
+    <title>SDS | Liste des Demandes</title>
+    <link rel="icon" href="logo sans bg.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <a href="index.html"><img src="logo.jpg" alt="Logo de SDS"></a>
+    <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Qui sommes-nous.html">Qui sommes-nous ?</a></li>
+            <li><a href="Nos Produits.html">Nos Produits</a></li>
+            <li><a href="Contact et Localisation.html">Contact et Localisation</a></li>
+            <li><a href="Demande de Devis.html">Demande de Devis</a></li>
+            <li><a href="Liste des Demandes.html">Liste des Demandes</a></li>
+            <li><a href="Notre Equipe.html">Notre Équipe</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="ld">
+    <h1>Nos suivis, vos demandes, notre engagement</h1>
+    <div id="nom-formulaire">
+        <label for="emailUtilisateur">Entrez votre e-mail pour voir vos demandes :</label>
+        <input type="email" id="emailUtilisateur" placeholder="Votre e-mail" required>
+        <br><br>
+        <button onclick="afficherDemandes()">Afficher mes demandes</button>
+    </div>
+    <p id="message"></p>
+    <div id="demandes-container"></div>
+</section>
+<footer>
+    <p>&copy; 2025 Société de Distribution Souibri - Souidis. Tous droits réservés.</p>
+</footer>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script>
+
+
+    const navToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.menu-nav');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("emailUtilisateur").value = "";
+    });
+
+    function afficherDemandes() {
+        var email = document.getElementById("emailUtilisateur").value.trim();
+        if (email === "") {
+            alert("Veuillez entrer un e-mail.");
+            return;
+        }
+        const isAdmin = email.toLowerCase() === 'hibakaram2k06@gmail.com';
+        var messageEl = document.getElementById("message");
+        var container = document.getElementById("demandes-container");
+        container.innerHTML = "";
+
+        const nomsLisibles = {
+            "Pelle Pointure": "Pelle Pointure",
+            "Palote Mango Largo": "Palote Mango Largo",
+            "Pulvérisateur à dos": "Pulvérisateur à dos",
+            "Petit Pulvérisateur à main": "Petit Pulvérisateur à main",
+            "Fourche Forgée à 4 dents": "Fourche Forgée à 4 dents",
+            "Fourche Forgée à 3 dents": "Fourche Forgée à 3 dents",
+            "Etrier de Faux": "Etrier de Faux",
+            "Faux": "Faux",
+            "Sécateur de récolte avec poignée": "Sécateur de récolte avec poignée",
+            "Truelle droite avec manche en bois": "Truelle droite avec manche en bois",
+            "Rodel 6mm": "Rodel 6mm",
+            "Rodel 8mm": "Rodel 8mm",
+            "Scie à bûche": "Scie à bûche",
+            "Hache": "Hache",
+            "Tenaille Russe": "Tenaille Russe",
+            "Jeu de 8 clés plates": "Jeu de 8 clés plates",
+            "Grobet": "Grobet",
+            "Lame Fine": "Lame Fine",
+            "Scie à métaux": "Scie à métaux",
+            "Serre-joint": "Serre-joint",
+            "Marteau": "Marteau",
+            "Massette Carrée": "Massette Carrée",
+            "Sécateur à deux mains": "Sécateur à deux mains",
+            "Sécateur à une main": "Sécateur à une main",
+            "Râteau 16 dents": "Râteau 16 dents",
+            "Râteau à feuilles": "Râteau à feuilles",
+            "Scie à élaguer": "Scie à élaguer",
+            "Taille-haie": "Taille-haie"
+        };
+        
+        database.ref('demandes').once('value')
+            .then((snapshot) => {
+                const demandes = snapshot.val() || {};
+                const demandesFiltrees = Object.keys(demandes)
+                    .map(key => ({ id: key, ...demandes[key] }))
+                    .filter(demande => isAdmin || (demande.email && demande.email.toLowerCase() === email.toLowerCase()));
+
+                if (demandesFiltrees.length === 0) {
+                    messageEl.textContent = "Bienvenue, vous n'avez aucune demande enregistrée.";
+                } else {
+                    messageEl.textContent = "Bienvenue, voici la liste de vos demandes :";
+                    demandesFiltrees.forEach((demande) => {
+                        var section = document.createElement("div");
+                        section.classList.add("demande");
+                        section.setAttribute("data-demande-id", demande.id);
+
+                        var produitsHTML = Object.entries(demande.produits || {})
+                            .map(([nomInterne, quantite]) => {
+                                var nomLisible = nomsLisibles[nomInterne] || nomInterne;
+                                return `<li>${nomLisible} : ${quantite}</li>`;
+                            }).join("");
+
+                        let statutHTML;
+                        let actionsHTML = '';
+                        if (demande.statut === "Traité") {
+                            statutHTML = `<span>${demande.statut}</span>`;
+                            actionsHTML = '<span style="color:#7A0000; font-weight:bold;">Demande terminée.</span>';
+                        } else if (isAdmin) {
+                            statutHTML = `<select onchange="mettreAJourStatut('${demande.id}', this.value)">
+                                            <option value="En attente de traitement" ${demande.statut === "En attente de traitement" ? 'selected' : ''}>En attente de traitement</option>
+                                            <option value="En cours de traitement" ${demande.statut === "En cours de traitement" ? 'selected' : ''}>En cours de traitement</option>
+                                            <option value="Devis envoyé" ${demande.statut === "Devis envoyé" ? 'selected' : ''}>Devis envoyé</option>
+                                            <option value="Traité" ${demande.statut === "Traité" ? 'selected' : ''}>Traité</option>
+                                        </select>`;
+                            actionsHTML = `<button onclick="supprimerDemande('${demande.id}')">Supprimer</button>`;
+                        } else {
+                            statutHTML = `<span>${demande.statut}</span>`;
+                            if (demande.statut === "En attente de traitement") {
+                                actionsHTML = `<button onclick="supprimerDemande('${demande.id}')">Supprimer</button>`;
+                            }
+                        }
+
+                        section.innerHTML = `
+                            <h2>Demande - ${demande.nom}</h2>
+                            <p><strong>Email :</strong> ${demande.email}</p>
+                            <p><strong>Téléphone :</strong> ${demande.telephone}</p>
+                            <p><strong>Date :</strong> ${demande.date}</p>
+                            <p><strong>Statut :</strong> ${statutHTML}</p>
+                            <p><strong>Message :</strong> ${demande.message || "Aucun message."}</p>
+                            <h3>Produits commandés :</h3>
+                            <ul>${produitsHTML}</ul>
+                            ${actionsHTML}
+                            <hr>
+                        `;
+                        container.appendChild(section);
+                    });
+                }
+            })
+            .catch(error => {
+                alert("Erreur de récupération des données : " + error.message);
+            });
+    }
+
+    function supprimerDemande(id) {
+        const confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette demande ?");
+        if (confirmation) {
+            database.ref('demandes/' + id).remove()
+                .then(() => {
+                    const elementASupprimer = document.querySelector(`div[data-demande-id='${id}']`);
+                    if (elementASupprimer) {
+                        elementASupprimer.remove();
+                    }
+                    if (document.querySelectorAll('.demande').length === 0) {
+                        document.getElementById("message").textContent = "Bienvenue, vous n'avez aucune demande enregistrée.";
+                        document.getElementById("demandes-container").innerHTML = "";
+                    }
+                })
+                .catch(error => {
+                    alert("Erreur lors de la suppression : " + error.message);
+                });
+        }
+    }
+
+    function mettreAJourStatut(id, nouveauStatut) {
+        database.ref('demandes/' + id).update({ statut: nouveauStatut })
+            .then(() => {
+                afficherDemandes();
+                alert("Le statut a été mis à jour à : " + nouveauStatut);
+            })
+            .catch(error => {
+                alert("Erreur lors de la mise à jour du statut : " + error.message);
+            });
+    }
+</script>
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.querySelector('nav');
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+});
+</script>
+</body>
+</html>

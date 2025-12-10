@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SDS - Société de Distribution Souibri-Souidis, distributeur officiel Bellota et Urko au Maroc depuis 1986. Outils professionnels pour agriculture, construction et jardinage.">
+    <meta name="keywords" content="outils professionnels, Bellota, Urko, Maroc, agriculture, construction, jardinage, outils Casablanca">
+    <meta name="author" content="SDS">
+    <title>SDS | Contact et Localisation</title>
+    <link rel="icon" href="logo sans bg.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="logo.jpg" alt="Logo de SDS"></a>
+        <div class="menu-toggle" id="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="Qui sommes-nous.html">Qui sommes-nous ?</a></li>
+                <li><a href="Nos Produits.html">Nos Produits</a></li>
+                <li><a href="Contact et Localisation.html">Contact et Localisation</a></li>
+                <li><a href="Demande de Devis.html">Demande de Devis</a></li>
+                <li><a href="Liste des Demandes.html">Liste des Demandes</a></li>
+                <li><a href="Notre Equipe.html">Notre Équipe</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="cetl">
+        <h1>Nos coordonnées, votre proximité, notre réactivité</h1>
+        <p>
+            <strong>Adresse : </strong>
+            <a href="https://maps.google.com/?q=141+Boulevard+Mohammed+VI,+Quartier+La+Gironde,+Casablanca" target="_blank" class="liens-d-accueil">
+                141 Boulevard Mohammed VI (ex Route de Médiouna), Quartier La Gironde, Casablanca
+            </a>
+        </p>
+        <p><strong>Téléphone : </strong><a href="tel:+212522303506" class="liens-d-accueil">+212 5 22 30 35 06</a></p>
+        <p><strong>Fax : </strong><a href="tel:+212522314169" class="liens-d-accueil">+212 5 22 31 41 69</a></p>
+        <p>
+            <strong>Email : </strong>
+            <a href="mailto:souidis.import@gmail.com" class="liens-d-accueil">souidis.import@gmail.com</a> /
+            <a href="mailto:souidis@menara.ma" class="liens-d-accueil">souidis@menara.ma</a>
+        </p>
+        <p><strong>Horaires d'ouverture :</strong></p>
+        <table class="horaires-table">
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>Magasin</th>
+                    <th>Comptabilité</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Jour">Lundi - Vendredi</td>
+                    <td data-label="Magasin">8h30 - 18h30</td>
+                    <td data-label="Comptabilité">8h30 - 17h00</td>
+                </tr>
+                <tr>
+                    <td data-label="Jour">Samedi</td>
+                    <td data-label="Magasin">8h30 - 18h30</td>
+                    <td data-label="Comptabilité">8h30 - 12h00</td>
+                </tr>
+                <tr>
+                    <td data-label="Jour">Dimanche</td>
+                    <td data-label="Horaires" colspan="2">Fermé</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <a href="#" class="hdp"><span class="flc"></span></a>
+    <footer>
+        <p>© 2025 Société de Distribution Souibri - Souidis. Tous droits réservés.</p>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navUl = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            navUl.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

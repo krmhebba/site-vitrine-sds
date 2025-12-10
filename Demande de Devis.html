@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SDS - Société de Distribution Souibri-Souidis, distributeur officiel Bellota et Urko au Maroc depuis 1986. Outils professionnels pour agriculture, construction et jardinage.">
+    <meta name="keywords" content="outils professionnels, Bellota, Urko, Maroc, agriculture, construction, jardinage, outils Casablanca">
+    <meta name="author" content="SDS">
+    <title>SDS | Demande de Devis</title>
+    <link rel="icon" href="logo sans bg.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="logo.jpg" alt="Logo de SDS"></a>
+    <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Qui sommes-nous.html">Qui sommes-nous ?</a></li>
+            <li><a href="Nos Produits.html">Nos Produits</a></li>
+            <li><a href="Contact et Localisation.html">Contact et Localisation</a></li>
+            <li><a href="Demande de Devis.html">Demande de Devis</a></li>
+            <li><a href="Liste des Demandes.html">Liste des Demandes</a></li>
+            <li><a href="Notre Equipe.html">Notre Équipe</a></li>
+        </ul>
+    </nav>
+  </header>
+  <section class="demande-de-devis">
+    <h1>Nos devis, vos projets, notre priorité</h1>
+    <p>Veuillez remplir le formulaire ci-dessous pour recevoir un devis personnalisé.</p>
+    <form id="formulaire">
+        <div class="form-group">
+          <label for="nom">Nom et Prénom :</label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse e-mail :</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="telephone">Numéro de téléphone :</label>
+          <input type="tel" id="telephone" name="telephone" pattern="^(\+212|0)(6|7)\d{8}$" required>
+        </div>
+        <fieldset>
+          <legend>Produits souhaités :</legend>
+          <div class="produit-item">
+            <label for="quantite_pelle">Pelle Pointure</label>
+            <input type="number" name="quantite_pelle" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_palote_mango_largo">Palote Mango Largo</label>
+            <input type="number" name="quantite_palote_mango_largo" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_pulverisateur_dos">Pulvérisateur à dos</label>
+            <input type="number" name="quantite_pulverisateur_dos" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_petit_pulverisateur_main">Petit Pulvérisateur à main</label>
+            <input type="number" name="quantite_petit_pulverisateur_main" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_fourche_forgee_4_dents">Fourche Forgée à 4 dents</label>
+            <input type="number" name="quantite_fourche_forgee_4_dents" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_fourche_forgee_3_dents">Fourche Forgée à 3 dents</label>
+            <input type="number" name="quantite_fourche_forgee_3_dents" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_etrier_de_faux">Etrier de Faux</label>
+            <input type="number" name="quantite_etrier_de_faux" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_faux">Faux</label>
+            <input type="number" name="quantite_faux" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_securateur_recolte">Sécateur de récolte avec poignée</label>
+            <input type="number" name="quantite_securateur_recolte" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_truelle_droite">Truelle droite avec manche en bois</label>
+            <input type="number" name="quantite_truelle_droite" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_rodel_6mm">Rodel 6mm</label>
+            <input type="number" name="quantite_rodel_6mm" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_rodel_8mm">Rodel 8mm</label>
+            <input type="number" name="quantite_rodel_8mm" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_scie_buche">Scie à bûche</label>
+            <input type="number" name="quantite_scie_buche" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_hache">Hache</label>
+            <input type="number" name="quantite_hache" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_tenaille_russe">Tenaille Russe</label>
+            <input type="number" name="quantite_tenaille_russe" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_jeu_8_cles">Jeu de 8 clés plates</label>
+            <input type="number" name="quantite_jeu_8_cles" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_grobet">Grobet</label>
+            <input type="number" name="quantite_grobet" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_lame_fine">Lame Fine</label>
+            <input type="number" name="quantite_lame_fine" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_scie_metaux">Scie à métaux</label>
+            <input type="number" name="quantite_scie_metaux" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_serre_joint">Serre-joint</label>
+            <input type="number" name="quantite_serre_joint" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_marteau">Marteau</label>
+            <input type="number" name="quantite_marteau" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_massette_carree">Massette Carrée</label>
+            <input type="number" name="quantite_massette_carree" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_securateur_2_mains">Sécateur à deux mains</label>
+            <input type="number" name="quantite_securateur_2_mains" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_securateur_1_main">Sécateur à une main</label>
+            <input type="number" name="quantite_securateur_1_main" min="0" placeholder="Qté">
+          </div>  
+          <div class="produit-item">
+            <label for="quantite_rateau_16_dents">Râteau 16 dents</label>
+            <input type="number" name="quantite_rateau_16_dents" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_rateau_feuilles">Râteau à feuilles</label>
+            <input type="number" name="quantite_rateau_feuilles" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_scie_elaguer">Scie à élaguer</label>
+            <input type="number" name="quantite_scie_elaguer" min="0" placeholder="Qté">
+          </div>
+          <div class="produit-item">
+            <label for="quantite_taille_haie">Taille-haie</label>
+            <input type="number" name="quantite_taille_haie" min="0" placeholder="Qté">
+          </div>
+        </fieldset> 
+          <div class="form-group">
+            <label for="message">Message supplémentaire :</label>
+            <textarea id="message" name="message" rows="4" placeholder="Ajoutez des informations supplémentaires ou des demandes spécifiques."></textarea>
+          </div>     
+          <div class="form-group">
+            <button type="submit">Envoyer la demande</button>
+          </div>    
+      </form>         
+  </section>
+  <a href="#" class="hdp"><span class="flc"></span></a>
+  <footer>
+    <p>&copy; 2025 Société de Distribution Souibri - Souidis. Tous droits réservés.</p>
+  </footer>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script>
+ 
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.querySelector('nav');
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+});
+
+    document.getElementById("formulaire").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nom = document.getElementById("nom").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const telephone = document.getElementById("telephone").value.trim();
+      const message = document.getElementById("message").value.trim();
+      
+      const produits = {};
+      document.querySelectorAll("input[type='number']").forEach(input => {
+        const quantite = parseInt(input.value);
+        if (!isNaN(quantite) && quantite > 0) {
+          const nomProduit = input.previousElementSibling.innerText;
+          produits[nomProduit] = quantite;
+        }
+      });
+      
+      if (Object.keys(produits).length === 0) {
+        alert("Veuillez choisir au moins un produit avant d'envoyer votre demande.");
+        return;
+      }
+
+      const nouvelleDemande = {
+        nom: nom,
+        email: email,
+        telephone: telephone,
+        message: message,
+        produits: produits,
+        date: new Date().toLocaleString(),
+        statut: "En attente de traitement"
+      };
+      
+      database.ref('demandes').push(nouvelleDemande)
+        .then(() => {
+          alert("Merci " + nom + ", votre demande a été enregistrée !");
+          document.getElementById("formulaire").reset();
+          window.location.href = "Liste des Demandes.html";
+        })
+        .catch(error => {
+          alert("Erreur lors de l'envoi de la demande: " + error.message);
+        });
+    });
+</script>
+</body>
+</html>
